@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { matchRules } from 'matchrules';
+import { matchRules } from 'match-rules';
 
 const source = {
   admin: 'user_admin',
