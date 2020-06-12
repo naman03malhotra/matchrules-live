@@ -15,8 +15,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        {matchRules(source, RULE) && 
-        <div>render admin stuff</div>}
+        {matchRules(source, RULE)?
+        <div>render admin stuff</div>:
+        <div>render non - admin stuff</div>}
       </div>
     );
   }
