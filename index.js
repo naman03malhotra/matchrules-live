@@ -45,6 +45,22 @@ const DEEP_RULE_EXAMPLE = {
   },
 };
 
+
+// example where you can crea
+const itemCreatedByUser = {
+  user_id: 123,
+}
+
+const userSource = {
+  id: 123,
+}
+
+const DYNAMIC_USER_RULE = (itemCreatedByUserParam) => {
+  return {
+    id: itemCreatedByUserParam.user_id,
+  }
+}
+
 class App extends Component {
 
   render() {
@@ -60,6 +76,10 @@ class App extends Component {
 
         {matchRules(sourceObject2, DEEP_RULE_EXAMPLE)?
         <div>deep data source</div>:
+        <div>not rendered</div>}
+
+        {matchRules(userSource, DYNAMIC_USER_RULE(itemCreatedByUser))?
+        <div>dynamic rule case rendered</div>:
         <div>not rendered</div>}
 
       </div>
