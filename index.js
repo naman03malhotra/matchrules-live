@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import matchRules from 'match-rules';
 
-const source = {
+const sourceObject0 = {
   admin: 'user_admin',
 };
 
@@ -10,7 +10,7 @@ const RULE = {
   admin: 'user_admin',
 }
 
-const sourceObject = {
+const sourceObject1 = {
   enable_unique_feature: true,
   when_user_is_admin: true,
   age_more_than_18: 25,
@@ -19,7 +19,7 @@ const sourceObject = {
 const ENABLE_UNIQUE_FEATURE = {
   enable_unique_feature: true,
   when_user_is_admin: true,
-  age_more_than_18: (value, sourceObject) => value > 18,
+  age_more_than_18: (value, sourceObject1) => value > 18,
 };
 
 const sourceObject2 = {
@@ -39,14 +39,14 @@ const DEEP_RULE_EXAMPLE = {
   userData: {
     personalData: {
       profile: {
-        country: (value, sourceObject) => value === 'US' || value === 'IN',
+        country: (value, sourceObject1) => value === 'US' || value === 'IN',
       },
     },
   },
 };
 
 
-// example where you can crea
+// example where you have to dynamically match the generated rule
 const itemCreatedByUser = {
   user_id: 123,
 }
@@ -66,11 +66,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        {matchRules(source, RULE)?
+        {matchRules(sourceObject0, RULE)?
         <div>render admin stuff</div>:
         <div>render non - admin stuff</div>}
 
-        {matchRules(sourceObject, ENABLE_UNIQUE_FEATURE)?
+        {matchRules(sourceObject1, ENABLE_UNIQUE_FEATURE)?
         <div>unique feature enabled</div>:
         <div>not rendered</div>}
 
